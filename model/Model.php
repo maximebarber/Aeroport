@@ -20,9 +20,9 @@ abstract class Model {
   // Renvoie un objet de connexion à la BD en initialisant la connexion au besoin
   protected function getBdd() {
 
-    $host = 'phpmyadmin.elan-formation.eu';
-    $dbname = 'maxime_aeroport';
-    $user = 'm_barber';
+    $host     = 'phpmyadmin.elan-formation.eu';
+    $dbname   = 'maxime_aeroport';
+    $user     = 'm_barber';
     $password = 'elanformation67';
 
     if ($this->bdd == null) {
