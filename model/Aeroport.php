@@ -2,7 +2,11 @@
 
 require_once 'model/Model.php';
 
-class Billet extends Model {
+class Aeroport extends Model {
+
+    public function __construct() {
+        parent::getBdd();
+    }
 
     public function addAeroport($code_aeroport, $id_ville, $latitude, $longitude, $nom_aeroport) {
 

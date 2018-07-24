@@ -7,10 +7,12 @@ class ControllerAeroport {
 
   private $billet;
   private $commentaire;
+  private $aeroport;
 
   public function __construct() {
     $this->billet = new Billet();
     $this->commentaire = new Commentaire();
+    $this->aeroport = new Aeroport();
   }
 
   // Affiche les détails sur un billet
@@ -21,19 +23,20 @@ class ControllerAeroport {
     $vue->generer(array('billet' => $billet, 'commentaires' => $commentaires));
   }
 
+  //Ajout d'un aéroport
+  function addAeroport($data) {
 
-}
+      $code_aeroport = $data['code_aeroport'];
+      $id_ville = $data['id_ville'];
+      $latitude = $data['latitude'];
+      $longitude = $data['longitude'];
+      $nom_aeroport = $data['nom_aeroport'];
 
-function addAeroport($data) {
+      $aeroport = new Aeroport();
 
-    $code_aeroport = $data['code_aeroport'];
-    $id_ville = $data['id_ville'];
-    $latitude = $data['latitude'];
-    $longitude = $data['longitude'];
-    $nom_aeroport = $data['nom_aeroport'];
+      $aeroport->addAeroport($code_aeroport, $id_ville, $latitude, $longitude, $nom_aeroport);
 
-    $aeroport = new Aeroport();
+  }
 
-    $aeroport->addAeroport($code_aeroport, $id_ville, $latitude, $longitude, $nom_aeroport);
 
 }

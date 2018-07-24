@@ -1,7 +1,6 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-<link rel="stylesheet" href="../content/style.css" type="text/css">
 
-<form id="form" method="POST">
+<form id="form" method="POST" action="index.php?action=addAeroport">
 
   <div class="form-group">
     <label for="nom_aeroport">Nom aéroport</label>
@@ -21,6 +20,11 @@
   <div class="form-group">
     <label for="latitude">Latitude</label>
     <input type="number" step="any" class="form-control" id="latitude" placeholder="" name="latitude">
+  </div>
+
+  <div class="form-group">
+    <label for="id_ville">Id ville</label>
+    <input type="number" step="any" class="form-control" id="id_ville" placeholder="" name="id_ville">
   </div>
 
   <button type="submit" class="btn btn-primary">Ajouter</button>

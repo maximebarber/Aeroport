@@ -3,7 +3,7 @@
 abstract class Model {
 
   // Objet PDO d'accès à la BD
-  private $bdd;
+  protected $bdd;
 
   // Exécute une requête SQL éventuellement paramétrée
   protected function executerRequete($sql, $params = null) {
@@ -18,10 +18,10 @@ abstract class Model {
   }
 
   // Renvoie un objet de connexion à la BD en initialisant la connexion au besoin
-  private function getBdd() {
+  protected function getBdd() {
 
     $host = 'phpmyadmin.elan-formation.eu';
-    $dbname = 'maxime_elan_gestion';
+    $dbname = 'maxime_aeroport';
     $user = 'm_barber';
     $password = 'elanformation67';
 
