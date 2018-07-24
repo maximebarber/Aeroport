@@ -1,6 +1,6 @@
 <?php
 
-abstract class Modele {
+abstract class Model {
 
   // Objet PDO d'accès à la BD
   private $bdd;

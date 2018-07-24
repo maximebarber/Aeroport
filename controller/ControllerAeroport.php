@@ -21,18 +21,19 @@ class ControllerAeroport {
     $vue->generer(array('billet' => $billet, 'commentaires' => $commentaires));
   }
 
-  public function addAeroport($data) {
 
-      $code_aeroport = $data['code_aeroport'];
-      $id_ville = $data['id_ville'];
-      $latitude = $data['latitude'];
-      $longitude = $data['longitude'];
-      $nom_aeroport = $data['nom_aeroport'];
+}
 
-      $aeroport = new Aeroport();
+function addAeroport($data) {
 
-      $aeroport->addAeroport($code_aeroport, $id_ville, $latitude, $longitude, $nom_aeroport);
+    $code_aeroport = $data['code_aeroport'];
+    $id_ville = $data['id_ville'];
+    $latitude = $data['latitude'];
+    $longitude = $data['longitude'];
+    $nom_aeroport = $data['nom_aeroport'];
 
-  }
+    $aeroport = new Aeroport();
+
+    $aeroport->addAeroport($code_aeroport, $id_ville, $latitude, $longitude, $nom_aeroport);
 
 }
