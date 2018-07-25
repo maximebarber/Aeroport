@@ -2,16 +2,18 @@
 
 require_once 'model/Model.php';
 
-class Aeroport extends Model {
+class Aeroport extends Model
+{
 
     //Connection à la bdd
-    public function __construct() {
+    public function __construct()
+    {
         parent::getBdd();
     }
 
     //Ajout d'un aéroport à la bdd
-    public function addAeroport($data) {
-
+    public function addAeroport($data)
+    {
         $sql = 'INSERT INTO AEROPORT (code_aeroport, id_ville, latitude, longitude, nom_aeroport)
                 VALUES (:code_aeroport, :id_ville, :latitude, :longitude, :nom_aeroport)';
 
@@ -23,7 +25,13 @@ class Aeroport extends Model {
                             ':nom_aeroport'  => $data['nom_aeroport']));
 
         return $req;
-
     }
 
+    public function getAeroport()
+    {
+        $sql = 'SELECT * getAeroport';
+
+        $req = $this->bdd->query($sql);
+        return $req;
+    }
 }
