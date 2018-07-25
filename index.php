@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="content/style.css" type="text/css">
+
 <?php
 
 require_once 'controller/ControllerAeroport.php';
@@ -19,3 +21,4 @@ switch ($_GET['action']) {
     break;
 
 }
+var_dump($_POST);
