@@ -3,6 +3,7 @@
 <?php
 
 require_once 'controller/ControllerAeroport.php';
+require_once 'view/navbar.php'
 
 switch ($_GET['action']) {
 
