@@ -6,7 +6,7 @@
     $latitude = ($aeroport["latitude"]);
     $longitude = ($aeroport["longitude"]);
 
-    $dataAeroport[] = array($nom, $latitude, $longitude);
+    $dataAeroport[] = array('nom' => $nom, 'position' => array('latitude' => $latitude, 'longitude' => $longitude));
 
 }
 
@@ -32,6 +32,11 @@ $tabJSON = json_encode($dataAeroport);
 <!-- Script contenant ls JS nécessaire à l'affichage de la carte et des pointeurs -->
 <script>
 
+var tabJSON = <?= $tabJSON ?>;
+console.log(tabJSON);
+console.log(tabJSON[0]['position']['latitude']);
+console.log(tabJSON[0]['nom']);
+
 //On initialize la carte
 var map = L.map('map').setView([48.856614, 2.3522219000000177], 3);
 
@@ -53,7 +58,8 @@ var bounds = L.latLngBounds(southWest, northEast);
 
 //Et on les applique
 map.setMaxBounds(bounds);
-map.on('drag', function() {
+map.on('drag', function()
+{
     map.panInsideBounds(bounds, { animate: false });
 });
 
@@ -72,11 +78,21 @@ var PinIcon = L.Icon.extend({
 //On crée un pointeur rouge
 var redIcon = new PinIcon({iconUrl: 'IMG/airport.png'});
 
-<?php
-//On boucle sur les aéroports dans la bdd et on les affiche grâce aux pointeurs
-while ($aeroport = $aeroports->fetch()) {?>
-L.marker([<?= $aeroport["latitude"]; ?>,<?= $aeroport["longitude"];?>],
-{icon: redIcon}).addTo(map).bindPopup('<?= $aeroport["nom_aeroport"];?>');
-<?php }?>
+
+//On boucle sur les aéroports dans le tableau JSON et on les affiche grâce aux pointeurs
+for(var i = 0; i < tabJSON.length; i++)
+{
+  L.marker([tabJSON[i]['position']['latitude'],tabJSON[i]['position']['longitude']],
+  {icon: redIcon}).addTo(map).bindPopup(tabJSON[i]["nom"]);
+}
+
+//Version en while (très sale)
+
+// var i = -1;
+// while (i++ < tabJSON.length - 1)
+// {
+//   L.marker([tabJSON[i]['position']['latitude'],tabJSON[i]['position']['longitude']],
+//   {icon: redIcon}).addTo(map).bindPopup(tabJSON[i]["nom"]);
+// }
 
 </script>
