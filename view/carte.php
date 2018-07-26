@@ -44,9 +44,9 @@ L.tileLayer("https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{e
     *où se trouve le centre de Formation.
     */
 
-    var redIcon = new PinIcon({iconUrl: 'IMG/red-pin-md.png'}),
-        pinkIcon = new PinIcon({iconUrl: 'IMG/pink-pin-md.png'}),
-        greenIcon = new PinIcon({iconUrl: 'IMG/green-pin-md.png'}),
+    var redIcon    = new PinIcon({iconUrl: 'IMG/red-pin-md.png'}),
+        pinkIcon   = new PinIcon({iconUrl: 'IMG/pink-pin-md.png'}),
+        greenIcon  = new PinIcon({iconUrl: 'IMG/green-pin-md.png'}),
         orangeIcon = new PinIcon({iconUrl: 'IMG/orange-pin-md.png'});
 
     /*
