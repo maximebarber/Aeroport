@@ -8,13 +8,17 @@
 <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
   integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
   crossorigin=""></script>
-  
+
 <script>
 //On initialize la carte
-var map = L.map('map').setView([48.856614, 2.3522219000000177], 6);
+var map = L.map('map').setView([48.856614, 2.3522219000000177], 2);
 
-L.tileLayer('https://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}',{
-    maxZoom:20
+L.tileLayer("https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}",{
+    attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    subdomains: 'abcd',
+    minZoom: 1,
+    maxZoom: 16,
+    ext: 'png'
     }).addTo(map);
 
     /*
@@ -50,19 +54,9 @@ L.tileLayer('https://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}
     *juste pour montrer la taille de centre de Formation par rapport
     *aux autres qui sont d'une taille plus moderée.
     */
+    <?php
+    //On boucle sur
+    while ($aeroport = $aeroports->fetch()) {?>
+    L.marker([<?= $aeroport["latitude"]; ?>,<?= $aeroport["longitude"];?>], {icon: redIcon}).addTo(map).bindPopup('<?= $aeroport["nom_aeroport"];?>');<?php }?>
 
-    L.marker([49.1065237, 6.2334335000000465], {icon: redIcon}).addTo(map).bindPopup("<h3>Metz</h3>");
-    L.marker([48.7050197, 6.14384199999995], {icon: redIcon}).addTo(map).bindPopup("<h3>Nancy</h3>");
-    L.marker([48.557575, 7.747591100000022], {icon: redIcon}).addTo(map).bindPopup("<h3>Strasbourg</h3>");
 </script>
-
-<!-- On récupère le getAeroport -->
-<?php
-while ($aeroport = $aeroports->fetch()) {
-    echo '<p>'.$aeroport["nom_aeroport"].'</p>';
-    echo '<p>'.$aeroport["longitude"].'</p>';
-    echo '<p>'.$aeroport["latitude"].'</p>';
-}
-
-$aeroports->closeCursor();
-?>
