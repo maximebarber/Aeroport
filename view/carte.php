@@ -1,4 +1,26 @@
 
+<?php while ($aeroport = $aeroports->fetch()) {
+
+    $nom = ($aeroport["nom_aeroport"]);
+    $code = ($aeroport["code_aeroport"]);
+    $latitude = ($aeroport["latitude"]);
+    $longitude = ($aeroport["longitude"]);
+
+    $dataAeroport[] = array($nom, $latitude, $longitude);
+
+}
+
+//Array version PHP
+var_dump($dataAeroport);
+echo '<br>';
+//Array version JSON
+echo json_encode($dataAeroport);
+echo '<br>';
+
+$tabJSON = json_encode($dataAeroport);
+
+?>
+
 <!--Div contenant la carte -->
 <div id="map"></div>
 

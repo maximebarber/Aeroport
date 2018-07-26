@@ -12,12 +12,12 @@
 
   <div class="form-group">
     <label for="longitude">Longitude</label>
-    <input type="number" step="any" class="form-control" id="longitude" placeholder="" name="longitude">
+    <input type="number" step="" class="form-control" id="longitude" placeholder="" name="longitude">
   </div>
 
   <div class="form-group">
     <label for="latitude">Latitude</label>
-    <input type="number" step="any" class="form-control" id="latitude" placeholder="" name="latitude">
+    <input type="number" step="" class="form-control" id="latitude" placeholder="" name="latitude">
   </div>
 
   <div class="form-group">
