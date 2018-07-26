@@ -29,9 +29,11 @@ class Aeroport extends Model
 
     public function getAeroport()
     {
-        $sql = 'SELECT * getAeroport';
+        $sql = 'SELECT * FROM getAeroport';
 
         $req = $this->bdd->query($sql);
+        //$response = $req->fetchAll();
+        //var_dump($response);
         return $req;
     }
 }

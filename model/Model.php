@@ -27,8 +27,9 @@ abstract class Model {
 
     if ($this->bdd == null) {
       // Création de la connexion
-      $this->bdd = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8',
-        $user, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+      $this->bdd = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8',$user, $password);
+      $this->bdd->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
+      $this->bdd->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     }
     return $this->bdd;
   }

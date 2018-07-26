@@ -1,3 +1,7 @@
+<?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL|E_STRICT);?>
+
 <!-- CSS Bootstrap -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
 
@@ -31,7 +35,7 @@ switch ($_GET['action']) {
 
   case 'carte':
 
-    require_once 'view/carte.php';
+      getAeroport();
 
     break;
 

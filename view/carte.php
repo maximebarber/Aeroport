@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Carte</title>
 
-  </head>
-    <body>
 
       <div id="map">
 
       </div>
 
-  </body>
-</html>
+      <!-- On récupère le getAeroport -->
+      <?php
+     
+      while($aeroport = $aeroports->fetch()) {
+      echo $aeroport['nom_aeroport'];}
+
+      $aeroports->closeCursor();
+
+      ?>

@@ -14,10 +14,10 @@ function addAeroport($data) {
 
 function getAeroport() {
 
-    $aeroport = new Aeroport();
+    $aeroportModel = new Aeroport();
 
-    $aeroport->getAeroport();
+    $aeroports = $aeroportModel->getAeroport();
 
-    require_once 'view/carte.php';
+    require 'view/carte.php';
 
 }
