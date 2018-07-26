@@ -28,6 +28,7 @@ switch ($_GET['action']) {
           addAeroport($_POST);
 
       }
+      else addAeroport(null);
 
       require_once 'view/addAeroport.php';
 

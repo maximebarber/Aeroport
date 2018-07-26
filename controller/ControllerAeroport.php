@@ -3,12 +3,15 @@
 require_once 'model/Aeroport.php';
 require_once 'model/Ville.php';
 
-function addAeroport($data) {
+function addAeroport($data = null) {
 
+  //On vérifie si les champs existent ou non
+  if(isset($data)){
     $aeroport = new Aeroport();
-    $villeModel = new Ville();
-
     $aeroport->addAeroport($data);
+  }
+
+    $villeModel = new Ville();
     $villes = $villeModel->getVille();
 
     require_once 'view/addAeroport.php';

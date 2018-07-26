@@ -18,6 +18,7 @@ class Ville extends Model
       $req = $this->bdd->query($sql);
 
       return $req;
+
     }
 
 }

@@ -1,3 +1,7 @@
+<?php while ($ville = $villes->fetch()){
+    echo $ville["nom_ville"];
+} ?>
+
 <form id="form" method="POST" action="index.php?action=addAeroport">
 
   <div class="form-group">
