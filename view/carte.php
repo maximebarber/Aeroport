@@ -1,15 +1,16 @@
 
 
-      <div id="map">
+<div id="map">
 
-      </div>
+</div>
 
-      <!-- On récupère le getAeroport -->
-      <?php
-     
-      while($aeroport = $aeroports->fetch()) {
-      echo $aeroport['nom_aeroport'];}
+<!-- On récupère le getAeroport -->
+<?php
+while ($aeroport = $aeroports->fetch()) {
+    echo '<p>'.$aeroport["nom_aeroport"].'</p>';
+    echo '<p>'.$aeroport["longitude"].'</p>';
+    echo '<p>'.$aeroport["latitude"].'</p>';
+}
 
-      $aeroports->closeCursor();
-
-      ?>
+$aeroports->closeCursor();
+?>

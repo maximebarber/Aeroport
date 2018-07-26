@@ -1,4 +1,3 @@
-<script>
 //On initialize la carte
 var map = L.map('map').setView([48.856614, 2.3522219000000177], 6);
 
@@ -43,5 +42,3 @@ L.tileLayer('https://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}
     L.marker([49.1065237, 6.2334335000000465], {icon: redIcon}).addTo(map).bindPopup("<h3>Metz</h3>");
     L.marker([48.7050197, 6.14384199999995], {icon: redIcon}).addTo(map).bindPopup("<h3>Nancy</h3>");
     L.marker([48.557575, 7.747591100000022], {icon: redIcon}).addTo(map).bindPopup("<h3>Strasbourg</h3>");
-
-    </script>
