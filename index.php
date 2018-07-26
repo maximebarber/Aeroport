@@ -23,7 +23,7 @@ require_once 'view/navbar.php';
 //Vérifie s'il y a bien 'action' dans l'url
 if(isset($_GET['action'])){
 
-  //Affichage des différentes pages
+  //Affichage des différentes pages s'il y a une action
   switch ($_GET['action']) {
 
     case 'accueil':
@@ -59,6 +59,11 @@ if(isset($_GET['action'])){
 
   }
 
+}
+//Sinon afficher la page d'accueil
+else
+{
+  require_once 'view/accueil.php';
 }
 //var_dump($_POST);
 
