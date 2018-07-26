@@ -1,7 +1,3 @@
-<?php while ($ville = $villes->fetch()){
-    echo $ville["nom_ville"];
-} ?>
-
 <form id="form" method="POST" action="index.php?action=addAeroport">
 
   <div class="form-group">
@@ -25,8 +21,16 @@
   </div>
 
   <div class="form-group">
-    <label for="id_ville">Id ville</label>
-    <input type="number" step="any" class="form-control" id="id_ville" placeholder="" name="id_ville">
+    <label for="id_ville">Ville</label>
+    <select class="custom-select" name="id_ville">
+      <option selected>Choix ville...</option>
+
+      <!-- Liste déroulante des villes -->
+      <?php while ($ville = $villes->fetch()){
+          echo '<option value="'.$ville["id_ville"].'">'.$ville["nom_ville"].'</option>';
+      }?>
+
+    </select>
   </div>
 
   <button type="submit" class="btn btn-primary">Ajouter</button>
