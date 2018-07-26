@@ -27,7 +27,7 @@
 
       <!-- Liste déroulante des villes -->
       <?php while ($ville = $villes->fetch()){
-          echo '<option value="'.$ville["id_ville"].'">'.$ville["nom_ville"].'</option>';
+        echo '<option value="'.$ville["id_ville"].'">'.$ville["nom_ville"].'</option>';
       }?>
 
     </select>

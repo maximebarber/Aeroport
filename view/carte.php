@@ -1,22 +1,25 @@
 
+<!-- Récupération des aéroports dans la bdd -->
 <?php while ($aeroport = $aeroports->fetch()) {
 
     $nom = ($aeroport["nom_aeroport"]);
-    $code = ($aeroport["code_aeroport"]);
+    //$code = ($aeroport["code_aeroport"]);
     $latitude = ($aeroport["latitude"]);
     $longitude = ($aeroport["longitude"]);
 
+    //Création d'un array qui contient les info nécessaires aux pointeurs
     $dataAeroport[] = array('nom' => $nom, 'position' => array('latitude' => $latitude, 'longitude' => $longitude));
 
 }
 
-//Array version PHP
-var_dump($dataAeroport);
-echo '<br>';
-//Array version JSON
-echo json_encode($dataAeroport);
-echo '<br>';
+// //Array version PHP
+// var_dump($dataAeroport);
+// echo '<br>';
+// //Array version JSON
+// echo json_encode($dataAeroport);
+// echo '<br>';
 
+//Conversion array PHP en JSON
 $tabJSON = json_encode($dataAeroport);
 
 ?>
@@ -34,8 +37,8 @@ $tabJSON = json_encode($dataAeroport);
 
 var tabJSON = <?= $tabJSON ?>;
 console.log(tabJSON);
-console.log(tabJSON[0]['position']['latitude']);
-console.log(tabJSON[0]['nom']);
+//console.log(tabJSON[0]['position']['latitude']);
+//console.log(tabJSON[0]['nom']);
 
 //On initialize la carte
 var map = L.map('map').setView([48.856614, 2.3522219000000177], 3);
@@ -86,7 +89,7 @@ for(var i = 0; i < tabJSON.length; i++)
   {icon: redIcon}).addTo(map).bindPopup(tabJSON[i]["nom"]);
 }
 
-//Version en while (très sale)
+//Version en while de Vincent (très sale)
 
 // var i = -1;
 // while (i++ < tabJSON.length - 1)

@@ -12,7 +12,7 @@ class Aeroport extends Model
     }
 
     //Ajout d'un aéroport à la bdd
-    public function addAeroport($data)
+    public function addAeroport($data = null)
     {
         $sql = 'INSERT INTO AEROPORT (code_aeroport, id_ville, latitude, longitude, nom_aeroport)
                 VALUES (:code_aeroport, :id_ville, :latitude, :longitude, :nom_aeroport)';

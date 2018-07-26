@@ -1,6 +1,8 @@
 <?php
+//Affichage erreurs dans le navigateur
 ini_set('display_errors', 1);
-error_reporting(E_ALL|E_STRICT);?>
+error_reporting(E_ALL|E_STRICT);
+?>
 
 <!-- CSS Bootstrap -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
@@ -16,48 +18,60 @@ error_reporting(E_ALL|E_STRICT);?>
 <?php
 
 require_once 'controller/ControllerAeroport.php';
-//require_once 'controller/ControllerLeaflet.js';
 require_once 'view/navbar.php';
 
-switch ($_GET['action']) {
+//Vérifie s'il y a bien 'action' dans l'url
+if(isset($_GET['action'])){
 
-  case 'addAeroport':
+  //Affichage des différentes pages
+  switch ($_GET['action']) {
 
-      if(!empty($_POST)){
+    case 'accueil':
 
-          addAeroport($_POST);
-
-      }
-      else addAeroport(null);
-
-      require_once 'view/addAeroport.php';
+      require_once 'view/accueil.php';
 
       break;
 
-  case 'carte':
+    case 'addAeroport':
 
-      getAeroport();
+        if(!empty($_POST)){
 
-    break;
+            addAeroport($_POST);
 
-  default:
+        }
 
-    require_once 'view/addAeroport.php';
+        //affichage du formlaire
+        else addAeroport();
 
-    break;
+        break;
+
+    case 'carte':
+
+        getAeroport();
+
+        break;
+
+    default:
+
+      require_once 'view/accueil.php';
+
+      break;
+
+  }
 
 }
-var_dump($_POST);
+//var_dump($_POST);
 
 ?>
 
-<!-- JQuery, Ajax et JS Bootstrap -->
+<!-- JQuery, Ajax et JS de Bootstrap -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
 
 <!-- JS app.js -->
 <!-- <script type="text/javascript" src="controller/ControllerLeaflet.js"></script> -->
+<!-- Plus nécessaire car script directement dans carte.php -->
 
 </body>
 </html>
